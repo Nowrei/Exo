@@ -22,6 +22,9 @@ class Produit
     #[ORM\Column(length: 255)]
     private ?string $age_mini = null;
 
+    #[ORM\ManyToOne(inversedBy: 'produits')]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Produit
     public function setAgeMini(string $age_mini): self
     {
         $this->age_mini = $age_mini;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
