@@ -19,6 +19,9 @@ class Produit
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $age_mini = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +47,18 @@ class Produit
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getAgeMini(): ?string
+    {
+        return $this->age_mini;
+    }
+
+    public function setAgeMini(string $age_mini): self
+    {
+        $this->age_mini = $age_mini;
 
         return $this;
     }
