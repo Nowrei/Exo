@@ -7,11 +7,13 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProduitController extends AbstractController
 {
     #[Route('/produit', name: 'app_produit')]
+    #[IsGranted('ROLE_USER', message : 'Vous n\'avez pas acces à cette page !')]
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
         $user = $this->getUser();
