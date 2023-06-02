@@ -15,7 +15,7 @@ class Produit1Type extends AbstractType
             ->add('nom')
             ->add('description')
             ->add('age_mini')
-            ->add('user')
+       
         ;
     }
 

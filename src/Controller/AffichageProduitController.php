@@ -13,9 +13,35 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/affichage')]
 class AffichageProduitController extends AbstractController
 {
+    // #[Route('/posts/{id}', name: 'post_show')]
+    // public function show($id): Response
+    // {
+    //     get a Post object - e.g. query for it
+    //     $produit = $produit->getUser() !== $this->getUser();
+
+    //     check for "view" access: calls all voters
+    //     $this->denyAccessUnlessGranted('view', $produit);
+
+    //     ...
+    // }
+
+    // #[Route('/posts/{id}/edit', name: 'post_edit')]
+    // public function edit($id): Response
+    // {
+    //     get a Post object - e.g. query for it
+    //     $produit = $produit->getUser() !== $this->getUser();
+
+    //     check for "edit" access: calls all voters
+    //     $this->denyAccessUnlessGranted('edit', $produit);
+
+    //     ...
+    // }
+
     #[Route('/', name: 'app_affichage_produit_index', methods: ['GET'])]
+    
     public function index(ProduitRepository $produitRepository): Response
     {
+        
         return $this->render('affichage_produit/index.html.twig', [
             'produits' => $produitRepository->findAll(),
         ]);
